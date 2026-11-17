@@ -1125,3 +1125,27 @@ select,
     padding: 9px;
   }
 }
+
+/* 🎀 CUSTOM PROFILE ACCENT COLORS */
+
+:root {
+  --profile-accent: #df8eaf;
+}
+
+.main button:not(.theme-toggle):not(.delete),
+.profile-save {
+  background: var(--profile-accent) !important;
+  border-color: var(--profile-accent) !important;
+  transition: background .3s ease, border-color .3s ease;
+}
+
+.main button:not(.theme-toggle):not(.delete):hover,
+.profile-save:hover {
+  filter: brightness(0.93);
+}
+
+/* Keep the selected color visible in both themes */
+.color-options input:checked + span {
+  outline: 2px solid var(--profile-accent);
+  outline-offset: 3px;
+}
