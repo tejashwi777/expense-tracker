@@ -1,6 +1,6 @@
 
-# 🎀 Pinky Wallet — Your Little Money Diary
-
+# 🎀 Expense Tracker — Pinky Wallet
+### Your Little Money Diary ♡
 <p align="center">
   ♡ A dreamy little space to track your money, manage your budget, and save for your dreams. ♡
 </p>
