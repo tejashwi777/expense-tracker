@@ -405,3 +405,48 @@ document.getElementById("jarForm")
   });
 
 renderJars();
+
+/* 🌙 PINKY WALLET THEME SWITCHER */
+
+const themeToggle = document.getElementById("themeToggle");
+
+function applyTheme(theme) {
+  const isMidnight = theme === "midnight";
+
+  document.body.classList.toggle("midnight-theme", isMidnight);
+
+  themeToggle.textContent = isMidnight
+    ? "☀️ Daytime Pink"
+    : "🌙 Midnight Rose";
+
+  themeToggle.setAttribute(
+    "aria-label",
+    isMidnight
+      ? "Switch to Daytime Pink theme"
+      : "Switch to Midnight Rose theme"
+  );
+
+  // Keep the chart readable in both themes
+  if (typeof chart !== "undefined" && chart) {
+    chart.options.plugins.legend.labels.color =
+      isMidnight ? "#f1dce7" : "#79556a";
+    chart.update();
+  }
+}
+
+// Load saved theme
+const savedTheme =
+  localStorage.getItem("pinkyTheme") || "day";
+
+applyTheme(savedTheme);
+
+// Switch theme when clicked
+themeToggle.addEventListener("click", () => {
+  const isMidnight =
+    document.body.classList.contains("midnight-theme");
+
+  const newTheme = isMidnight ? "day" : "midnight";
+
+  localStorage.setItem("pinkyTheme", newTheme);
+  applyTheme(newTheme);
+});
