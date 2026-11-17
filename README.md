@@ -1,6 +1,6 @@
 ## 🌐 Live Demo
 
-♡ [Visit Pinky Wallet](https://YOUR-USERNAME.github.io/expense-tracker/)
+♡ [Visit Pinky Wallet](https://tejashwi777.github.io/expense-tracker/) 
 # 🎀 Expense Tracker — Pinky Wallet
 
 <p align="center">
