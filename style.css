@@ -918,3 +918,210 @@ input:focus-visible, select:focus-visible {
     font-size: 30px;
   }
 }
+
+/* 🌙 MIDNIGHT ROSE THEME */
+
+body.midnight-theme {
+  --pink: #d88aaa;
+  --deep: #f0a9c7;
+  --blush: #382331;
+  --cream: #291d29;
+  --rose: #58374b;
+  --text: #f1dce7;
+  --muted: #c19bad;
+  --border: #533448;
+
+  background:
+    radial-gradient(ellipse at 5% 5%, #543044 0%, transparent 40%),
+    radial-gradient(ellipse at 95% 80%, #482a42 0%, transparent 40%),
+    #211923;
+  color: var(--text);
+}
+
+/* Sidebar */
+body.midnight-theme .sidebar {
+  background: rgba(40, 27, 39, .95);
+  border-color: #543448;
+}
+
+/* Main cards */
+body.midnight-theme .panel,
+body.midnight-theme .stat-card {
+  background: rgba(49, 33, 47, .95);
+  border-color: #624157;
+  box-shadow: 0 8px 25px #100b142e;
+}
+
+body.midnight-theme .panel:hover,
+body.midnight-theme .stat-card:hover {
+  box-shadow: 0 15px 30px #120a184d;
+}
+
+/* Text */
+body.midnight-theme h1,
+body.midnight-theme h3,
+body.midnight-theme .brand {
+  color: #f3c0d5;
+}
+
+body.midnight-theme .muted,
+body.midnight-theme .eyebrow,
+body.midnight-theme .nav-label,
+body.midnight-theme .sidebar-bottom {
+  color: #c5a1b5;
+}
+
+/* Navigation */
+body.midnight-theme .nav {
+  color: #d0aabd;
+}
+
+body.midnight-theme .nav:hover,
+body.midnight-theme .nav.active {
+  background: #513449;
+  border-color: #80516d;
+  color: #ffd4e5;
+}
+
+/* Inputs */
+body.midnight-theme input,
+body.midnight-theme select {
+  background: #382838;
+  color: #f8e4ed;
+  border-color: #65435a;
+}
+
+body.midnight-theme input::placeholder {
+  color: #b995aa;
+}
+
+body.midnight-theme input:focus,
+body.midnight-theme select:focus {
+  background: #453047;
+  border-color: #df91b4;
+  box-shadow: 0 0 0 4px #9c577733;
+}
+
+/* Transactions */
+body.midnight-theme .transaction {
+  border-color: #55384b;
+}
+
+body.midnight-theme .transaction:hover {
+  background: #463047;
+}
+
+body.midnight-theme .transaction .income {
+  color: #9ad4b7;
+}
+
+body.midnight-theme .transaction .expense {
+  color: #f2a3c2;
+}
+
+body.midnight-theme .delete {
+  background: #543447;
+  color: #ffd3e5;
+}
+
+/* Decorations */
+body.midnight-theme .quote,
+body.midnight-theme .welcome-tag {
+  background: #493044;
+  border-color: #68425b;
+  color: #f1b6d0;
+}
+
+body.midnight-theme .avatar {
+  background: #56354b;
+  border-color: #83546f;
+}
+
+body.midnight-theme .stat-card::after {
+  color: #68445c;
+}
+
+/* Savings jars */
+body.midnight-theme .jar-card {
+  background: linear-gradient(140deg, #4b3046, #332435);
+  border-color: #70475f;
+}
+
+body.midnight-theme .jar-header h4 {
+  color: #f3bad2;
+}
+
+body.midnight-theme .jar-details {
+  color: #c4a1b4;
+}
+
+body.midnight-theme .progress,
+body.midnight-theme .jar-progress {
+  background: #65445b;
+}
+
+/* Theme button */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.theme-toggle {
+  width: auto;
+  margin: 0;
+  padding: 11px 16px;
+  border: 1px solid #f3c5d8;
+  border-radius: 30px;
+  white-space: nowrap;
+  font-size: 12px;
+}
+
+body.midnight-theme .theme-toggle {
+  background: linear-gradient(120deg, #644058, #8e5278);
+  border-color: #a96b91;
+  color: white;
+}
+
+/* Hero */
+body.midnight-theme .hero {
+  background: linear-gradient(125deg, #75445f, #58364f, #402a42);
+  border-color: #87536e;
+  box-shadow: 0 15px 35px #08050d66;
+}
+
+/* Footer */
+body.midnight-theme footer {
+  color: #c19bad;
+}
+
+/* Smooth theme transition */
+body,
+.sidebar,
+.panel,
+.stat-card,
+.nav,
+input,
+select,
+.transaction,
+.jar-card,
+.quote,
+.welcome-tag {
+  transition:
+    background-color .35s ease,
+    background .35s ease,
+    color .35s ease,
+    border-color .35s ease,
+    box-shadow .35s ease;
+}
+
+@media (max-width: 480px) {
+  .header-actions {
+    gap: 6px;
+  }
+
+  .theme-toggle {
+    font-size: 10px;
+    padding: 9px;
+  }
+}
