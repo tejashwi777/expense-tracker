@@ -627,9 +627,12 @@ profileForm.addEventListener("submit", function(event) {
     );
 
     applyProfile();
-    closeProfile();
 
-    alert("Your little profile has been saved! 🎀");
+// Close the profile popup after saving
+profileOverlay.classList.remove("show");
+
+alert("Your little profile has been saved! 🎀");
+    
   } catch (error) {
     console.error("Profile saving failed:", error);
     alert("Oops! Your profile couldn't be saved.");
