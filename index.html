@@ -2,207 +2,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>♡ Pinky Wallet ♡</title>
-<style>
-* { box-sizing:border-box; }
-body {
-  margin:0;
-  padding:30px 15px;
-  font-family:'Trebuchet MS',sans-serif;
-  background:#fff0f5;
-  color:#92516e;
-}
-.container {
-  max-width:450px;
-  margin:auto;
-  background:#fffafd;
-  padding:25px;
-  border-radius:28px;
-  box-shadow:0 10px 35px #edb6ce66;
-}
-h1 { text-align:center; color:#dc79a4; }
-.subtitle { text-align:center; color:#bd89a2; }
-.balance {
-  background:linear-gradient(135deg,#f9b9d2,#e78bb4);
-  color:white;
-  padding:25px;
-  border-radius:22px;
-  text-align:center;
-  margin:25px 0;
-}
-.balance h2 { font-size:34px; margin:10px; }
-.stats { display:flex; gap:12px; }
-.stat {
-  flex:1;
-  padding:15px;
-  background:#fff0f6;
-  border-radius:18px;
-  text-align:center;
-}
-.stat p { font-size:12px; }
-.stat h3 { margin:8px 0; }
-h3 { color:#cf719b; }
-input,select {
-  width:100%;
-  padding:13px;
-  margin:7px 0;
-  border:1px solid #f3c5d8;
-  border-radius:12px;
-  background:#fff8fb;
-  color:#92516e;
-  outline:none;
-}
-button {
-  cursor:pointer;
-  border:0;
-  background:#e98bb4;
-  color:white;
-  padding:13px;
-  border-radius:13px;
-  width:100%;
-  margin-top:10px;
-  font-weight:bold;
-}
-button:hover { background:#d86e9e; }
-.transaction {
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:13px;
-  margin:10px 0;
-  background:#fff1f6;
-  border-radius:14px;
-}
-.transaction small { display:block; color:#b98aa2; }
-.delete {
-  width:auto;
-  margin:0;
-  padding:8px 12px;
-  background:#f3a8c5;
-}
-.income { color:#56a987; }
-.expense { color:#dc7196; }
-#history { margin-top:15px; }
-</style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pinky Wallet | Money Diary</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
-<div class="container">
-  <h1>🎀 Pinky Wallet 🎀</h1>
-  <p class="subtitle">♡ save a little, dream a lot ♡</p>
 
-  <div class="balance">
-    <p>My total balance 💗</p>
-    <h2 id="balance">Rs. 0</h2>
-    <small>your money, your magic ✨</small>
-  </div>
+<div class="app">
 
-  <div class="stats">
-    <div class="stat">
-      <p>🌷 Income</p>
-      <h3 id="income">Rs. 0</h3>
+  <aside class="sidebar">
+    <div class="brand">♡ pinky.</div>
+    <p class="nav-label">MENU</p>
+    <a class="nav active" href="#">✿ Overview</a>
+    <a class="nav" href="#transactions">♡ Transactions</a>
+    <a class="nav" href="#budget">♧ My Budget</a>
+    <a class="nav" href="#savings">☆ Savings Goals</a>
+
+    <div class="sidebar-bottom">
+      <div class="quote">"Little steps make big dreams." ♡</div>
+      <p>made with love 🎀</p>
     </div>
-    <div class="stat">
-      <p>🧁 Expenses</p>
-      <h3 id="expense">Rs. 0</h3>
-    </div>
-  </div>
+  </aside>
 
-  <h3>♡ Add a transaction</h3>
-  <input id="title" placeholder="What did you spend on?">
-  <input id="amount" type="number" min="0.01" step="0.01"
-    placeholder="Amount (Rs.)">
-  <select id="type">
-    <option value="income">🌸 Income</option>
-    <option value="expense">🎀 Expense</option>
-  </select>
-  <button onclick="addTransaction()">+ Add to my wallet 💕</button>
+  <main class="main">
+    <header>
+      <div>
+        <p class="eyebrow">YOUR PERSONAL MONEY DIARY</p>
+        <h1>Good day, lovely! <span>♡</span></h1>
+        <p class="muted">Let's make your money dreams happen.</p>
+      </div>
+      <div class="avatar">🎀</div>
+    </header>
 
-  <h3>🌷 My transactions</h3>
-  <div id="history"></div>
+    <section class="hero">
+      <div>
+        <p>TOTAL BALANCE</p>
+        <h2 id="balance">Rs. 0.00</h2>
+        <span>✧ Your financial glow-up starts here</span>
+      </div>
+      <div class="hero-flower">✿</div>
+    </section>
+
+    <section class="stats">
+      <div class="stat-card">
+        <span>🌷 INCOME</span>
+        <h2 id="income">Rs. 0.00</h2>
+        <small>Money coming in</small>
+      </div>
+      <div class="stat-card">
+        <span>🧁 EXPENSES</span>
+        <h2 id="expense">Rs. 0.00</h2>
+        <small>Money going out</small>
+      </div>
+      <div class="stat-card">
+        <span>♡ SAVINGS</span>
+        <h2 id="savings">Rs. 0.00</h2>
+        <small>Income minus expenses</small>
+      </div>
+    </section>
+
+    <section class="content-grid">
+      <div class="panel" id="transactions">
+        <div class="panel-heading">
+          <div>
+            <p class="eyebrow">YOUR MONEY STORY</p>
+            <h3>Recent transactions ♡</h3>
+          </div>
+        </div>
+        <form id="transactionForm">
+          <input id="title" placeholder="What was it for?" required>
+          <input id="amount" type="number" min="0.01" step="0.01" placeholder="Amount (Rs.)" required>
+          <select id="type">
+            <option value="expense">🧁 Expense</option>
+            <option value="income">🌷 Income</option>
+          </select>
+          <select id="category">
+            <option>Food</option>
+            <option>Shopping</option>
+            <option>Transport</option>
+            <option>Education</option>
+            <option>Entertainment</option>
+            <option>Salary</option>
+            <option>Other</option>
+          </select>
+          <button type="submit">+ Add transaction ♡</button>
+        </form>
+        <div id="transactionList"></div>
+      </div>
+
+      <div class="right-column">
+        <div class="panel">
+          <p class="eyebrow">LITTLE BREAKDOWN</p>
+          <h3>Spending habits 🌸</h3>
+          <canvas id="expenseChart"></canvas>
+          <p id="chartMessage" class="muted">Add expenses to see your chart!</p>
+        </div>
+
+        <div class="panel" id="budget">
+          <p class="eyebrow">BE A SMART GIRL</p>
+          <h3>Monthly budget 🎀</h3>
+          <input id="budgetInput" type="number" min="0" placeholder="Set your budget (Rs.)">
+          <button id="budgetButton">Save my budget</button>
+          <p id="budgetStatus" class="muted">Your budget journey starts here ♡</p>
+          <div class="progress">
+            <div id="budgetProgress"></div>
+          </div>
+        </div>
+
+        <div class="panel" id="savings">
+          <p class="eyebrow">DREAM BIG</p>
+          <h3>My little savings goal ☆</h3>
+          <input id="goalName" placeholder="e.g. New laptop">
+          <input id="goalAmount" type="number" min="1" placeholder="Goal amount (Rs.)">
+          <button id="goalButton">Save my dream ♡</button>
+          <p id="goalStatus" class="muted">Every rupee counts!</p>
+        </div>
+      </div>
+    </section>
+
+    <footer>Made with ♡ and a little pink magic.</footer>
+  </main>
 </div>
 
-<script>
-let transactions = JSON.parse(
-  localStorage.getItem("pinkyTransactions") || "[]"
-);
-
-function save() {
-  localStorage.setItem("pinkyTransactions",
-    JSON.stringify(transactions));
-}
-
-function render() {
-  let income = 0, expense = 0;
-  const history = document.getElementById("history");
-  history.innerHTML = "";
-
-  transactions.forEach((t, i) => {
-    if(t.type === "income") income += t.amount;
-    else expense += t.amount;
-
-    let div = document.createElement("div");
-    div.className = "transaction";
-
-    let info = document.createElement("div");
-    let name = document.createElement("strong");
-    name.textContent = t.title;
-    let date = document.createElement("small");
-    date.textContent = t.date;
-    info.append(name, date);
-
-    let right = document.createElement("div");
-    let value = document.createElement("strong");
-    value.className = t.type;
-    value.textContent =
-      (t.type === "income" ? "+ " : "- ") + "Rs. " + t.amount;
-
-    let del = document.createElement("button");
-    del.className = "delete";
-    del.textContent = "✕";
-    del.setAttribute("aria-label", "Delete " + t.title);
-    del.onclick = () => {
-      transactions.splice(i, 1);
-      save();
-      render();
-    };
-
-    right.append(value, del);
-    div.append(info, right);
-    history.append(div);
-  });
-
-  document.getElementById("income").textContent =
-    "Rs. " + income.toFixed(2);
-  document.getElementById("expense").textContent =
-    "Rs. " + expense.toFixed(2);
-  document.getElementById("balance").textContent =
-    "Rs. " + (income-expense).toFixed(2);
-}
-
-function addTransaction() {
-  let title = document.getElementById("title").value.trim();
-  let amount = Number(document.getElementById("amount").value);
-  let type = document.getElementById("type").value;
-
-  if(!title || !Number.isFinite(amount) || amount <= 0) {
-    alert("Please enter a name and a valid amount 💗");
-    return;
-  }
-
-  transactions.unshift({
-    title, amount, type,
-    date: new Date().toLocaleDateString()
-  });
-
-  save();
-  render();
-  document.getElementById("title").value = "";
-  document.getElementById("amount").value = "";
-}
-
-render();
-</script>
+<script src="script.js"></script>
 </body>
 </html>
