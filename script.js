@@ -272,3 +272,136 @@ function updateChart() {
 
 // Initialize app
 updateDashboard();
+
+// 🫙 PINKY WALLET SAVINGS JARS
+
+let jars = JSON.parse(
+  localStorage.getItem("pinkyJars") || "[]"
+);
+
+function saveJars() {
+  localStorage.setItem("pinkyJars", JSON.stringify(jars));
+}
+
+function renderJars() {
+  const list = document.getElementById("jarList");
+  list.innerHTML = "";
+
+  if (jars.length === 0) {
+    list.textContent = "Your little dreams are waiting here ♡";
+    return;
+  }
+
+  jars.forEach((jar, index) => {
+    const percentage = Math.min(
+      jar.saved / jar.target * 100, 100
+    );
+
+    const card = document.createElement("div");
+    card.className = "jar-card";
+
+    const header = document.createElement("div");
+    header.className = "jar-header";
+
+    const name = document.createElement("h4");
+    name.textContent = "🫙 " + jar.name;
+
+    const emoji = document.createElement("span");
+    emoji.className = "jar-emoji";
+    emoji.textContent = percentage >= 100 ? "🎉" : "🎀";
+
+    header.append(name, emoji);
+
+    const progress = document.createElement("div");
+    progress.className = "jar-progress";
+
+    const fill = document.createElement("div");
+    fill.className = "jar-fill";
+    fill.style.width = percentage + "%";
+    progress.append(fill);
+
+    const details = document.createElement("div");
+    details.className = "jar-details";
+
+    const saved = document.createElement("span");
+    saved.textContent = "Rs. " + jar.saved.toFixed(2);
+
+    const target = document.createElement("span");
+    target.textContent = "Goal: Rs. " + jar.target.toFixed(2);
+
+    details.append(saved, target);
+
+    const percentageText = document.createElement("p");
+    percentageText.className = "muted";
+    percentageText.textContent =
+      percentage.toFixed(1) + "% completed ♡";
+
+    const actions = document.createElement("div");
+    actions.className = "jar-actions";
+
+    const deposit = document.createElement("button");
+    deposit.textContent = "+ Add savings";
+    deposit.addEventListener("click", () => {
+      const amount = Number(
+        prompt("How much would you like to save? (Rs.)")
+      );
+
+      if (!Number.isFinite(amount) || amount <= 0) {
+        alert("Please enter a valid amount 💗");
+        return;
+      }
+
+      jar.saved += amount;
+      saveJars();
+      renderJars();
+    });
+
+    const remove = document.createElement("button");
+    remove.className = "delete";
+    remove.textContent = "Delete";
+    remove.addEventListener("click", () => {
+      if (confirm("Delete this savings jar?")) {
+        jars.splice(index, 1);
+        saveJars();
+        renderJars();
+      }
+    });
+
+    actions.append(deposit, remove);
+
+    card.append(header, progress, details, percentageText, actions);
+    list.append(card);
+  });
+}
+
+document.getElementById("jarForm")
+  .addEventListener("submit", function(event) {
+    event.preventDefault();
+
+    const name = document.getElementById("jarName").value.trim();
+    const target = Number(document.getElementById("jarTarget").value);
+    const deposit = Number(document.getElementById("jarDeposit").value);
+
+    if (
+      !name ||
+      !Number.isFinite(target) ||
+      !Number.isFinite(deposit) ||
+      target <= 0 ||
+      deposit <= 0
+    ) {
+      alert("Please enter valid savings details 🎀");
+      return;
+    }
+
+    jars.push({
+      name,
+      target,
+      saved: deposit
+    });
+
+    saveJars();
+    renderJars();
+    this.reset();
+  });
+
+renderJars();
