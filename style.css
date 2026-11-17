@@ -873,3 +873,48 @@ input:focus-visible, select:focus-visible {
     font-size: 100px;
   }
 }
+
+/* 🎀 EXTRA COQUETTE DETAILS */
+
+.welcome-tag {
+  display: inline-block;
+  background: #ffe8f1;
+  border: 1px solid #f4cfdf;
+  color: #b8668c;
+  border-radius: 30px;
+  padding: 7px 14px;
+  font-size: 11px;
+  letter-spacing: 1px;
+  margin-bottom: 15px;
+}
+
+.hero {
+  position: relative;
+}
+
+.hero-sticker {
+  position: absolute;
+  right: 40px;
+  top: 18px;
+  color: #fff9;
+  font-size: 45px;
+  transform: rotate(12deg);
+  pointer-events: none;
+}
+
+.avatar {
+  border: 2px solid white;
+  box-shadow: 0 5px 15px #e9a4c555;
+  transition: transform .3s;
+}
+
+.avatar:hover {
+  transform: rotate(12deg) scale(1.1);
+}
+
+@media (max-width: 480px) {
+  .hero-sticker {
+    right: 15px;
+    font-size: 30px;
+  }
+}
