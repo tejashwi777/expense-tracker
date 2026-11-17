@@ -391,3 +391,129 @@ footer {
     padding: 18px;
   }
 }
+
+/* 🎀 PINKY WALLET AESTHETIC UPGRADE */
+
+body {
+  background:
+    radial-gradient(ellipse at 10% 10%, #ffe0ed 0%, transparent 35%),
+    radial-gradient(ellipse at 90% 80%, #fce2f1 0%, transparent 35%),
+    #fff8fb;
+  background-attachment: fixed;
+}
+
+/* Dreamy typography */
+h1, h3, .brand {
+  letter-spacing: -0.5px;
+}
+
+.brand {
+  text-shadow: 2px 3px 12px #e9a4c566;
+}
+
+/* Floating decorative hero */
+.hero {
+  background:
+    radial-gradient(circle at 90% 10%, #ffffff40 0 3px, transparent 4px),
+    linear-gradient(120deg, #f3b7d0, #db85ad, #efa8c7);
+  box-shadow: 0 15px 35px #d981a933;
+  border: 1px solid #ffffff70;
+}
+
+.hero::after {
+  content: "୨୧";
+  position: absolute;
+  right: 125px;
+  bottom: 22px;
+  font-size: 45px;
+  opacity: .45;
+  transform: rotate(-15deg);
+}
+
+/* Floating cards */
+.panel, .stat-card {
+  transition: transform .3s ease, box-shadow .3s ease;
+}
+
+.panel:hover, .stat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px #e6a3c633;
+}
+
+/* Cute sidebar */
+.sidebar {
+  background: rgba(255,250,253,.92);
+  backdrop-filter: blur(15px);
+}
+
+.nav {
+  transition: all .25s ease;
+}
+
+.nav:hover {
+  padding-left: 20px;
+  transform: translateX(3px);
+}
+
+/* Softer input fields */
+input, select {
+  transition: all .25s ease;
+}
+
+input:hover, select:hover {
+  background: #fff1f7;
+}
+
+/* Pretty buttons */
+button {
+  background: linear-gradient(110deg, #f0a8c7, #d77da5);
+  box-shadow: 0 5px 15px #e6a0bf44;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+/* Cute transaction rows */
+.transaction {
+  transition: background .2s ease;
+  border-radius: 12px;
+  padding: 15px 10px;
+}
+
+.transaction:hover {
+  background: #fff5f9;
+}
+
+/* Savings and budget progress */
+.progress {
+  height: 12px;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 8px #e9a8c522;
+}
+
+/* Decorative footer */
+footer {
+  letter-spacing: 1px;
+  padding-top: 40px;
+}
+
+/* Selection color */
+::selection {
+  background: #f4bfd5;
+  color: #914968;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #e9a5c3;
+  border-radius: 20px;
+}
+
+::-webkit-scrollbar-track {
+  background: #fff2f7;
+}
