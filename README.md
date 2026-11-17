@@ -1,6 +1,8 @@
+## 🌐 Live Demo
 
+♡ [Visit Pinky Wallet](https://YOUR-USERNAME.github.io/expense-tracker/)
 # 🎀 Expense Tracker — Pinky Wallet
-### Your Little Money Diary ♡
+
 <p align="center">
   ♡ A dreamy little space to track your money, manage your budget, and save for your dreams. ♡
 </p>
