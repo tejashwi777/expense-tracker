@@ -590,17 +590,16 @@ document.addEventListener("keydown", event => {
 });
 
 // Save profile
-profileForm.addEventListener("submit", event => {
+
+// Save profile 🎀
+profileForm.addEventListener("submit", function(event) {
   event.preventDefault();
 
-  const name =
-    document.getElementById("profileName").value.trim();
+  console.log("Profile save clicked!");
 
-  const message =
-    document.getElementById("profileMessage").value.trim();
-
-  const avatar =
-    document.getElementById("profileAvatar").value;
+  const name = document.getElementById("profileName").value.trim();
+  const message = document.getElementById("profileMessage").value.trim();
+  const avatar = document.getElementById("profileAvatar").value;
 
   const selectedColor = document.querySelector(
     'input[name="accent"]:checked'
@@ -621,13 +620,20 @@ profileForm.addEventListener("submit", event => {
       : defaultProfile.accent
   };
 
-  localStorage.setItem(
-    "pinkyProfile",
-    JSON.stringify(profile)
-  );
+  try {
+    localStorage.setItem(
+      "pinkyProfile",
+      JSON.stringify(profile)
+    );
 
-  applyProfile();
-  closeProfile();
+    applyProfile();
+    closeProfile();
+
+    alert("Your little profile has been saved! 🎀");
+  } catch (error) {
+    console.error("Profile saving failed:", error);
+    alert("Oops! Your profile couldn't be saved.");
+  }
 });
 
 // ======================================
