@@ -588,3 +588,288 @@ footer {
   background: #fff;
   border: 1px solid #f3c5d8;
 }
+
+/* =================================
+   🎀 PINKY WALLET 2.0 — COQUETTE
+================================= */
+
+:root {
+  --pink: #df8eaf;
+  --deep: #ad587e;
+  --blush: #fff0f5;
+  --cream: #fffafd;
+  --rose: #f6d5e2;
+  --text: #79556a;
+  --muted: #b48fa1;
+  --gold: #c9a46b;
+}
+
+/* Dreamy background */
+body {
+  background:
+    radial-gradient(ellipse at 5% 5%, #ffe1ed 0%, transparent 35%),
+    radial-gradient(ellipse at 95% 55%, #f8dcec 0%, transparent 35%),
+    #fff8fb;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+}
+
+/* Decorative floating sparkles */
+body::before {
+  content: "✧  ♡  ✧";
+  position: fixed;
+  top: 12%;
+  right: 3%;
+  color: #e6a3c2;
+  font-size: 24px;
+  letter-spacing: 12px;
+  opacity: .5;
+  pointer-events: none;
+  z-index: 0;
+  animation: floatDecor 5s ease-in-out infinite;
+}
+
+body::after {
+  content: "୨୧";
+  position: fixed;
+  bottom: 8%;
+  left: 2%;
+  color: #df9ab8;
+  font-size: 42px;
+  opacity: .35;
+  pointer-events: none;
+  animation: floatDecor 6s ease-in-out infinite reverse;
+}
+
+@keyframes floatDecor {
+  0%, 100% { transform: translateY(0) rotate(-5deg); }
+  50% { transform: translateY(-12px) rotate(5deg); }
+}
+
+/* Elegant headings */
+h1, h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+  letter-spacing: .2px;
+}
+
+h1 {
+  font-size: clamp(32px, 4vw, 43px);
+}
+
+h3 {
+  font-size: 25px;
+}
+
+/* Brand */
+.brand {
+  font-family: 'Parisienne', cursive;
+  font-size: 43px;
+  color: var(--deep);
+  text-shadow: 0 5px 18px #e8a4c566;
+}
+
+/* Glassy sidebar */
+.sidebar {
+  background: rgba(255, 250, 253, .88);
+  backdrop-filter: blur(18px);
+  border-right: 1px solid #f3dbe6;
+}
+
+/* Navigation */
+.nav {
+  border: 1px solid transparent;
+  transition: all .3s ease;
+}
+
+.nav:hover {
+  background: #fff0f6;
+  border-color: #f5d5e2;
+  transform: translateX(4px);
+}
+
+.nav.active {
+  background: linear-gradient(110deg, #ffe5ef, #fff4f8);
+  border: 1px solid #f5d3e2;
+  color: var(--deep);
+}
+
+/* Beautiful balance card */
+.hero {
+  background:
+    radial-gradient(circle at 85% 20%, #ffffff38 0 4px, transparent 5px),
+    linear-gradient(125deg, #f4bed3, #dc8cac, #c8759b);
+  border: 1px solid #ffffff80;
+  border-radius: 30px;
+  box-shadow: 0 18px 40px #d78aa833;
+  padding: 42px;
+}
+
+.hero h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(38px, 5vw, 55px);
+  letter-spacing: 1px;
+}
+
+.hero-flower {
+  font-size: 160px;
+  color: #ffffff30;
+}
+
+/* Cards */
+.panel, .stat-card {
+  background: rgba(255, 255, 255, .86);
+  backdrop-filter: blur(12px);
+  border: 1px solid #f5dce7;
+  border-radius: 24px;
+  box-shadow: 0 8px 30px #dca8bf1a;
+  transition: transform .3s, box-shadow .3s;
+}
+
+.panel:hover, .stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 35px #dca8bf35;
+}
+
+/* Stat cards */
+.stat-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.stat-card::after {
+  content: "♡";
+  position: absolute;
+  right: 13px;
+  bottom: 0;
+  font-size: 40px;
+  color: #f4d7e4;
+  pointer-events: none;
+}
+
+.stat-card h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+}
+
+/* Inputs */
+input, select {
+  background: #fff8fb;
+  border: 1px solid #f2d6e2;
+  border-radius: 14px;
+  padding: 14px;
+  color: var(--text);
+}
+
+input::placeholder {
+  color: #c5a2b3;
+}
+
+input:focus, select:focus {
+  border-color: #dc8cac;
+  box-shadow: 0 0 0 4px #fce3ee;
+  background: white;
+}
+
+/* Buttons */
+button {
+  background: linear-gradient(120deg, #e9a8c4, #ce779f);
+  border-radius: 15px;
+  box-shadow: 0 6px 15px #d68aaa35;
+  transition: transform .25s, box-shadow .25s;
+}
+
+button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px #d68aaa55;
+}
+
+button:active {
+  transform: scale(.97);
+}
+
+/* Transactions */
+.transaction {
+  border-bottom: 1px dashed #f0d9e4;
+  border-radius: 14px;
+  padding: 16px 12px;
+  transition: background .25s;
+}
+
+.transaction:hover {
+  background: #fff3f8;
+}
+
+.transaction strong {
+  font-weight: 600;
+}
+
+/* Savings jars */
+.jar-card {
+  background: linear-gradient(140deg, #fff0f6, #fffafd);
+  border: 1px solid #f2d4e2;
+  box-shadow: 0 6px 18px #e6a9c522;
+  border-radius: 22px;
+}
+
+/* Progress bars */
+.progress, .jar-progress {
+  background: #f9e1eb;
+  border-radius: 30px;
+  overflow: hidden;
+}
+
+#budgetProgress, .jar-fill {
+  background: linear-gradient(90deg, #f5c2d7, #cf759e);
+  transition: width .7s ease;
+}
+
+/* Chart panel */
+canvas {
+  max-width: 100%;
+}
+
+/* Footer */
+footer {
+  color: #b88da2;
+  letter-spacing: 1.3px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17px;
+}
+
+/* Keyboard accessibility */
+button:focus-visible, a:focus-visible,
+input:focus-visible, select:focus-visible {
+  outline: 3px solid #df8eaf;
+  outline-offset: 3px;
+}
+
+/* Reduced motion preference */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Mobile refinement */
+@media (max-width: 850px) {
+  body::before {
+    right: 8px;
+    top: 5%;
+    font-size: 16px;
+  }
+
+  body::after {
+    display: none;
+  }
+
+  .hero {
+    padding: 28px;
+  }
+
+  .hero-flower {
+    font-size: 100px;
+  }
+}
