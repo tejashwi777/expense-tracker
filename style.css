@@ -1205,3 +1205,11 @@ select,
 body.midnight-theme .color-choice small {
   color: #f3c0d5;
 }
+.profile-save {
+  display: block !important;
+  width: 100%;
+  position: relative;
+  z-index: 5;
+  cursor: pointer;
+  pointer-events: auto;
+}
