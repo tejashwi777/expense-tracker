@@ -637,7 +637,7 @@ alert("Your little profile has been saved! 🎀");
     console.error("Profile saving failed:", error);
     alert("Oops! Your profile couldn't be saved.");
   }
-})
+});
 
 // ======================================
 // ✨ INITIALIZE PINKY WALLET
